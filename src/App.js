@@ -45,7 +45,7 @@ function App() {
     }
     else {
       setMode('light');
-      document.body.style.backgroundColor = '#f0f0f0';
+      document.body.style.backgroundColor = 'white';
       document.body.style.color = "black";
       document.title = "TextUtils-Light Mode";
 
@@ -60,9 +60,9 @@ function App() {
         <Alert alert={alert} />
         <div className="container">
           <Routes>
-            <Route exact path="/about" element={<About />} /> 
+            <Route exact path="/about" element={<About mode={mode} />} /> 
 
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="TextUtils - Word Counter, Character counter, Remove extra spaces" mode={mode} />} />
 
           </Routes>
         </div>

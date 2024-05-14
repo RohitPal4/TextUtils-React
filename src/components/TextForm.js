@@ -35,6 +35,7 @@ export default function TextForm(props) {
   const handleCopy = () => {
     let newtext = document.getElementById("mybox");
     newtext.select();
+    document.getSelection().removeAllRanges();
     navigator.clipboard.writeText(newtext.value);
     props.showAlert("Copied to Clipboard", "success");
 
@@ -73,24 +74,24 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleTcClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleTcClick}>
           Title Case
         </button>
 
-        <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>
           Clear
         </button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>
           Copy
         </button>
 
-        <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpace}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpace}>
           Remove Extra Space
         </button>
       </div>
